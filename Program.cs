@@ -3,10 +3,18 @@
 Adaptee adaptee1 = new Adaptee();
 ITarget target = new Adapter(adaptee1);
 
+System.Console.WriteLine("****************EXAMPLE 1******************");
 System.Console.WriteLine("Adaptee interface is incompatible with the client.");
 System.Console.WriteLine("But with adapter client can call it's method.");
 
 System.Console.WriteLine(target.GetRequest());
+
+System.Console.WriteLine("****************EXAMPLE 2******************");
+var usdPaymentSystem = new USDPaymentSystem();
+var adapter = new EURToUSDAdapter(usdPaymentSystem);
+
+double amountEUR = 100.00;
+adapter.ProcessPayment(amountEUR);
 
 public interface ITarget
 {
